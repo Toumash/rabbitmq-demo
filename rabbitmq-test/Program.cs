@@ -20,14 +20,17 @@ namespace rabbitmq_test
                 {
                     var message = GetMessage(args);
                     var body = Encoding.UTF8.GetBytes(message);
+                    var props = channel.CreateBasicProperties();
+                    props.DeliveryMode = 2;
+
                     channel.BasicPublish(exchange: "logs",
                                          routingKey: "",
-                                         basicProperties: null,
+                                         basicProperties: props,
                                          body: body);
                     // Console.WriteLine("{1} [x] Sent {0}", message, DateTime.Now.ToString("hh.mm.ss.ffffff"));
                 }
             }
-            
+
             Console.WriteLine(" Press [enter] to exit.");
             Console.ReadLine();
         }
