@@ -1,6 +1,7 @@
 using RabbitMQ.Client;
 using System;
 using System.Text;
+using System.Threading;
 
 namespace rabbitmq_test
 {
@@ -27,6 +28,8 @@ namespace rabbitmq_test
                                          routingKey: "",
                                          basicProperties: props,
                                          body: body);
+                    Console.WriteLine("Hello!" + DateTime.Now);
+                    Thread.Sleep(2000);
                     // Console.WriteLine("{1} [x] Sent {0}", message, DateTime.Now.ToString("hh.mm.ss.ffffff"));
                 }
             }

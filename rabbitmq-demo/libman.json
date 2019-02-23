@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "noty@3.1.4",
+      "destination": "wwwroot/lib/noty/"
+    }
+  ]
+}
